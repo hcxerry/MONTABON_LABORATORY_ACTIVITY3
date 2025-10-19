@@ -39,3 +39,9 @@ public class CoffeeShop {
         Customer.getAllowedRewardsRedemption(unknown);
     }
 }
+
+
+// Cherry R. Montabon 
+// AI THAT USE ChatGPT-5 
+// Conversation of AI 
+// https://chatgpt.com/share/68f4ad01-f3d0-8005-b1e7-7799dd423efe

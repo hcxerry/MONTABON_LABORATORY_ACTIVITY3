@@ -1,30 +1,66 @@
-public class MyBookList {
-    public static void main(String[] args) {
-        // 1.) Create the following books that contains the title, author, year published. Use the Book class for this part.
-        //      Rich Dad Poor Dad, Robert Kiyosaki, 1997
-        //      The Power of Habit, Charles Duhigg, 2012
-        //      Atomic Habits, James Clear, 2018
-        //      Java Programming, John Doe, 2020
-        //      Add your own favorite book
-        
+public class Customer {
+    // Instance Variables
+    private String name;
+    private int points;
 
-        // 2.) Display the details of each book using the displayDetails method. Below is the sample output
-        //     Title: Rich Dad Poor Dad, Author: Robert Kiyosaki, Year: 1997, Current Page: 0
-        //     Title: The Power of Habit, Author: Charles Duhigg, Year: 2012, Current Page: 0
-        //     Title: Atomic Habits, Author: James Clear, Year: 2018, Current Page: 0
-        //     Title: Java Programming, Author: John Doe, Year: 2020, Current Page: 0
+    // Static Variable
+    private static int totalCustomers = 0;
 
+    // ===== Constructors =====
+    // Default Constructor
+    public Customer() {
+        this.name = "No Name";
+        this.points = 0;
+        totalCustomers++;
+    }
 
-        // 3.) Change the current page of "Rich Dad Poor Dad" to 50 and "Atomic Habits" to 100 using the changePage method. Display the details again for the two books.
+    // Parameterized Constructor (name and points)
+    public Customer(String name, int points) {
+        this.name = name;
+        this.points = points;
+        totalCustomers++;
+    }
 
+    // Parameterized Constructor (name only)
+    public Customer(String name) {
+        this.name = name;
+        this.points = 0;
+        totalCustomers++;
+    }
 
-        // 4.) Change the current page of your favorite book to any page number you like. Display the details again for your favorite book.
+    // ===== Instance Methods =====
+    public void addPoints(int earnedPoints) {
+        this.points += earnedPoints;
+    }
 
+    public void redeemReward() {
+        if (points >= 100) {
+            System.out.println("Congratulations " + name + "! You redeemed a free drink!");
+            points -= 100;
+            System.out.println("Remaining Points: " + points);
+        } else {
+            System.out.println(name + ", you need more points to redeem a free drink.");
+            System.out.println("Current Points: " + points);
+        }
+    }
 
-        // 5.) Change the author of "Java Programming" to "Jane Smith". Display the details again for the book.
+    public void displayCustomerInfo() {
+        System.out.println("Customer Name: " + name);
+        System.out.println("Points: " + points);
+        System.out.println("---------------------------");
+    }
 
+    public int getPoints() {
+        return points;
+    }
 
-        // 6.) Create an array of Book objects to store all the books you created. Loop through the array and display the title of the books published after 2010.
+    // ===== Static Methods =====
+    public static void displayTotalCustomers() {
+        System.out.println("Total Registered Customers: " + totalCustomers);
+    }
 
+    public static void getAllowedRewardsRedemption(Customer customer) {
+        int redeemable = customer.points / 100;
+        System.out.println(customer.name + " can redeem " + redeemable + " free drink(s).");
     }
 }

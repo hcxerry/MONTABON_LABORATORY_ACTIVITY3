@@ -9,7 +9,7 @@ public class Customer {
     // ===== Constructors =====
     // Default Constructor
     public Customer() {
-        this.name = "No Name";
+        this.name = "Unknown";
         this.points = 0;
         totalCustomers++;
     }
@@ -39,7 +39,7 @@ public class Customer {
             points -= 100;
             System.out.println("Remaining Points: " + points);
         } else {
-            System.out.println(name + ", you need more points to redeem a free drink.");
+            System.out.println(name + " does not have enough points to redeem a drink.");
             System.out.println("Current Points: " + points);
         }
     }
@@ -64,3 +64,4 @@ public class Customer {
         System.out.println(customer.name + " can redeem " + redeemable + " free drink(s).");
     }
 }
+
